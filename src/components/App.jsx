@@ -1,5 +1,13 @@
 import React from 'react';
+import NavBar from './ui/NavBar';
 
-export default function App({ children }) {
-  return <div>{children}</div>;
+export default function App({ children, user }) {
+  return (
+    <>
+      <NavBar user={user} />
+      <div>
+        {children}
+      </div>
+    </>
+  );
 }

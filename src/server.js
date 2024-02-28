@@ -5,8 +5,9 @@ import cookieParser from 'cookie-parser';
 import 'dotenv/config';
 import jsxRender from './utils/jsxRender';
 import indexRouter from './routes/render/indexRouter';
-import apiRouter from './routes/api/apiRouter';
 import resLocals from './middlewares/resLocals';
+import apiAuthRouter from './routes/api/apiAuthRouter';
+import authRouter from './routes/render/authRouter';
 
 const PORT = process.env.PORT || 3000;
 const app = express();

@@ -1,11 +1,11 @@
 import express from 'express';
+import { Card } from '../../../db/models';
 import { Theme } from '../../../db/models';
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  const initState = { hello: 'world' };
-  res.render('IndexPage', initState);
+  res.render('IndexPage');
 });
 
 router.get('/themes', async (req, res) => {
@@ -13,9 +13,10 @@ router.get('/themes', async (req, res) => {
   res.render('ChoosePage', { themes });
 });
 
-router.get('/cardpage', (req, res) => {
-  const initState = {};
-  res.render('CardPage', initState);
+router.get('/cardpage', async (req, res) => {
+  const allThemes = await Card.findAll();
+  // console.log('---', allThemes);
+  res.render('CardPage', { allThemes });
 });
 
 export default router;
