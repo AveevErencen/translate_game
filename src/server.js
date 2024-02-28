@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(resLocals);
 
 app.use('/', indexRouter);
-app.use('/auth', authRouter);
-app.use('/api/auth', apiAuthRouter);
+app.use('/api', apiRouter);
+
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));
