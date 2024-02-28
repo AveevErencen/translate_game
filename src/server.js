@@ -4,8 +4,8 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import 'dotenv/config';
 import jsxRender from './utils/jsxRender';
-import indexRouter from './routes/indexRouter';
-import apiRouter from './routes/apiRouter';
+import indexRouter from './routes/render/indexRouter';
+import apiRouter from './routes/api/apiRouter';
 import resLocals from './middlewares/resLocals';
 
 const PORT = process.env.PORT || 3000;
