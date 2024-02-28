@@ -1,9 +1,9 @@
 import IndexPage from './pages/IndexPage';
-import CardPage from './pages/CardPage';
+import ChoosePage from './pages/ChoosePage';
 
 const components = {
   IndexPage,
-  CardPage,
+  ChoosePage,
 };
 
 export default components;
