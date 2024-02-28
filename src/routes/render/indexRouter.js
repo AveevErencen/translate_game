@@ -13,4 +13,9 @@ router.get('/themes', async (req, res) => {
   res.render('ChoosePage', { themes });
 });
 
+router.get('/cardpage', (req, res) => {
+  const initState = {};
+  res.render('CardPage', initState);
+});
+
 export default router;
