@@ -6,74 +6,43 @@ export default function CardPage({ allThemes }) {
   const wordBoxStyle = {
     display: 'flex',
     justifyContent: 'center',
-    margin: '50px',
+    flexWrap: 'wrap',
+    width: '240px',
+    // border: '1px solid red',
   };
 
   const oneCardStyle = {
     display: 'flex',
-    justifyContent: 'flexStart',
+    justifyContent: 'center',
+    alignItems: 'center',
     flexDirection: 'column',
     width: '18rem',
-
+    // border: '1px solid green',
   };
 
   const allCardsStyle = {
     display: 'flex',
-    justifyContent: 'center',
-    width
-  }
+    justifyContent: 'spaceBetween',
+    flexWrap: 'wrap',
+    // border: '1px solid black',
+  };
+
+  const translateButtStyle = {
+    margin: '20px',
+  };
 
   return (
-    <div style={}>
+    <div style={allCardsStyle}>
       {allThemes?.map((theme) => (
         <Card style={oneCardStyle}>
           <Card.Body style={oneCardStyle}>
             <div style={wordBoxStyle}>
               <Card.Title>{theme.word_eng}</Card.Title>
             </div>
-            <Button name="button_translate" type="button" variant="primary">Перевод</Button>
+            <Button style={translateButtStyle} name="button_translate" type="button" variant="primary">Перевод</Button>
           </Card.Body>
         </Card>
       ))}
     </div>
   );
 }
-
-{ /* <div style={genCardPageStyle}>
-
-//   <Card style={oneCardStyle}>
-//     <Card.Body style={oneCardStyle}>
-//       <div style={wordBoxStyle}>
-//         <Card.Title>Apple</Card.Title>
-//       </div>
-//       <Button name="button_translate" type="button" variant="primary">Перевод</Button>
-//     </Card.Body>
-//   </Card>
-
-//   <Card style={oneCardStyle}>
-//     <Card.Body style={oneCardStyle}>
-//       <div style={wordBoxStyle}>
-//         <Card.Title>Banana</Card.Title>
-//       </div>
-//       <Button name="button_translate" type="button" variant="primary">Перевод</Button>
-//     </Card.Body>
-//   </Card>
-
-//   <Card style={oneCardStyle}>
-//     <Card.Body style={oneCardStyle}>
-//       <div style={wordBoxStyle}>
-//         <Card.Title>Watermelon</Card.Title>
-//       </div>
-//       <Button name="button_translate" type="button" variant="primary">Перевод</Button>
-//     </Card.Body>
-//   </Card>
-
-// </div> */ }
-
-//   const genCardPageStyle = {
-//     display: 'flex',
-//     justifyContent: 'center',
-//     border: '1px solid black',
-//     padding: '70px',
-
-//   };
