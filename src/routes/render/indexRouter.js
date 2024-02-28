@@ -16,5 +16,5 @@ router.get('/cardpage', (req, res) => {
   const initState = {};
   res.render('CardPage', initState);
 });
-
+router.get('/account', (req, res) => res.render('UserPage'));
 export default router;
