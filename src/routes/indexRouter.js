@@ -7,4 +7,9 @@ router.get('/', (req, res) => {
   res.render('IndexPage', initState);
 });
 
+router.get('/cardpage', (req, res) => {
+  const initState = {};
+  res.render('CardPage', initState);
+});
+
 export default router;
