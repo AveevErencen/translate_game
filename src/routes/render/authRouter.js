@@ -14,6 +14,9 @@ authRouter.get('/', (req, res) => {
   res.render('IndexPage');
 });
 
+authRouter.get('/logout', (req, res) => res
+  .clearCookie('accessToken')
+  .clearCookie('refreshToken')
+  .redirect('/'));
+
 export default authRouter;
-
-

@@ -8,13 +8,11 @@ export default function SignupPage() {
     event.preventDefault();
     try {
       const formData = Object.fromEntries(new FormData(event.target));
+      console.log(formData);
       const response = await axios.post('/api/auth/signup', formData);
       if (response.status === 200) {
-        window.location = '/';
-        return;
+        window.location = '/themes';
       }
-      alert(response.data.message);
-      event.target.reset();
     } catch (error) {
       console.log(error);
       alert(error.response.data.message);
@@ -25,18 +23,21 @@ export default function SignupPage() {
     <Form onSubmit={handleSubmit}>
       <Form.Label htmlFor="inputPassword5">Имя</Form.Label>
       <Form.Control
+        name="name"
         type="name"
         id="inputName"
         aria-describedby="passwordHelpBlock"
       />
       <Form.Label htmlFor="inputPassword5">Email</Form.Label>
       <Form.Control
+        name="email"
         type="email"
         id="inputEmail"
         aria-describedby="passwordHelpBlock"
       />
       <Form.Label htmlFor="inputPassword5">Пароль</Form.Label>
       <Form.Control
+        name="password"
         type="password"
         id="inputPassword"
         aria-describedby="passwordHelpBlock"

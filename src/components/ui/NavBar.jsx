@@ -11,11 +11,13 @@ export default function NavBar({ user }) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            {user ? `${user.name}`
+            {user ? <Nav.Link href="/">{user.name}</Nav.Link>
               : <Nav.Link href="/auth/signin">Войти</Nav.Link>}
+            {user && <Nav.Link href="/themes">Выбрать тему</Nav.Link>}
             {user ? <Nav.Link href="/auth/logout">Выйти</Nav.Link>
               : <Nav.Link href="/auth/signup">Зарегестрироваться</Nav.Link>}
           </Nav>
+
         </Navbar.Collapse>
       </Container>
     </Navbar>
