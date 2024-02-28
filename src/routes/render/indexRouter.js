@@ -1,11 +1,16 @@
 import express from 'express';
 import { Card } from '../../../db/models';
+import { Theme } from '../../../db/models';
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  const initState = { hello: 'world' };
-  res.render('IndexPage', initState);
+  res.render('IndexPage');
+});
+
+router.get('/themes', async (req, res) => {
+  const themes = await Theme.findAll();
+  res.render('ChoosePage', { themes });
 });
 
 router.get('/cardpage', async (req, res) => {
