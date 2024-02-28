@@ -4,8 +4,7 @@ import { Theme } from '../../../db/models';
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  const initState = { hello: 'world' };
-  res.render('IndexPage', initState);
+  res.render('IndexPage');
 });
 
 router.get('/themes', async (req, res) => {
