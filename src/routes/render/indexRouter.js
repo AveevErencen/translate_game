@@ -15,7 +15,6 @@ router.get('/themes', async (req, res) => {
 
 router.get('/cardpage', async (req, res) => {
   const allThemes = await Card.findAll();
-  // console.log('---', allThemes);
   res.render('CardPage', { allThemes });
 });
 
