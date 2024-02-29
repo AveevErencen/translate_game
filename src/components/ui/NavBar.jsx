@@ -15,10 +15,10 @@ export default function NavBar({ user }) {
               : <Nav.Link href="/auth/signin">Войти</Nav.Link>}
             {user && <Nav.Link href="/themes">Выбрать тему</Nav.Link>}
             {user ? <Nav.Link href="/auth/logout">Выйти</Nav.Link>
-              : <Nav.Link href="/auth/signup">Зарегестрироваться</Nav.Link>}
+              : <Nav.Link href="/auth/signup">Зарегистрироваться</Nav.Link>}
           </Nav>
 
-        </Navbar.Collapse>
+        </Navbar.Collapse>  
       </Container>
     </Navbar>
   );

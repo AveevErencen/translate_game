@@ -21,12 +21,7 @@ export default function SignupPage() {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Label htmlFor="inputPassword5">Имя</Form.Label>
-      <Form.Control
-        name="name"
-        type="name"
-        id="inputName"
-        aria-describedby="passwordHelpBlock"
-      />
+      <Form.Control name="name" type="name" id="inputName" aria-describedby="passwordHelpBlock" />
       <Form.Label htmlFor="inputPassword5">Email</Form.Label>
       <Form.Control
         name="email"
@@ -41,8 +36,9 @@ export default function SignupPage() {
         id="inputPassword"
         aria-describedby="passwordHelpBlock"
       />
-      <Button type="submit" variant="secondary">Отправить</Button>
-      {' '}
+      <Button type="submit" variant="secondary">
+        Отправить
+      </Button>{' '}
     </Form>
   );
 }

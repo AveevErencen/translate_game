@@ -1,6 +1,5 @@
 import express from 'express';
-import { Card } from '../../../db/models';
-import { Theme } from '../../../db/models';
+import { Card, Theme, Progress } from '../../../db/models';
 
 const router = express.Router();
 
@@ -14,8 +13,10 @@ router.get('/themes', async (req, res) => {
 });
 
 router.get('/cardpage', async (req, res) => {
-  const allThemes = await Card.findAll();
+  const allThemes = await Card.findAll(); // Надо поменять на allCards
   res.render('CardPage', { allThemes });
 });
+
+
 
 export default router;
