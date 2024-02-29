@@ -1,6 +1,5 @@
 import express from 'express';
-import { Card } from '../../../db/models';
-import { Theme } from '../../../db/models';
+import { Card, Theme } from '../../../db/models';
 
 const router = express.Router();
 
@@ -15,7 +14,6 @@ router.get('/themes', async (req, res) => {
 
 router.get('/cardpage', async (req, res) => {
   const allThemes = await Card.findAll();
-  // console.log('---', allThemes);
   res.render('CardPage', { allThemes });
 });
 
