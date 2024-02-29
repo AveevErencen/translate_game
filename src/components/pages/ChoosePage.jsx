@@ -15,8 +15,7 @@ export default function ChoosePage({ themes }) {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (findTheme.length > 0) {
-        axios(`/api/search?text=${findTheme}`)
-          .then((res) => setOneTheme(res.data));
+        axios(`/api/search?text=${findTheme}`).then((res) => setOneTheme(res.data));
       }
     }, 1000);
     return () => clearTimeout(timeoutId);
@@ -37,7 +36,19 @@ export default function ChoosePage({ themes }) {
           />
         </InputGroup>
       </div>
-      <OneTheme themes={themes} />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '20px',
+          flexWrap: 'wrap',
+        }}
+      >
+        {themes.map((theme) => (
+          <OneTheme key={theme.id} theme={theme} />
+        ))}
+      </div>
+      {/* <OneTheme themes={themes} /> */}
     </>
   );
 }
