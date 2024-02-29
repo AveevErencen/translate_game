@@ -3,12 +3,12 @@ import { Card } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 
 export default function OneTheme({ themes }) {
-  const wordBoxStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    margin: '50px',
-    border: '1px solid black',
-  };
+  // const wordBoxStyle = {
+  //   display: 'flex',
+  //   justifyContent: 'center',
+  //   margin: '50px',
+  //   border: '1px solid black',
+  // };
 
   // const genCardPageStyle = {
   //   display: 'flex',
@@ -18,12 +18,12 @@ export default function OneTheme({ themes }) {
 
   // };
 
-  const oneCardStyle = {
-    display: 'flex',
-    justifyContent: 'flexStart',
-    flexDirection: 'column',
-    width: '18rem',
-  };
+  // const oneCardStyle = {
+  //   display: 'flex',
+  //   justifyContent: 'flexStart',
+  //   flexDirection: 'column',
+  //   width: '18rem',
+  // };
 
   const clickHandler = (id) => {
     window.location.href = `/cardpage/${id}`;

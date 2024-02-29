@@ -18,11 +18,12 @@ export default function NewCard({ handleSubmit }) {
 
   return (
     <Form
-      onSubmit={(event) => {
-        event.preventDefault();
-        handleSubmit(input);
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit(e, input);
       }}
     >
+      <h2>Создать новую карточку</h2>
       <Form.Floating className="mb-3">
         <Form.Control
           name="theme_name"
@@ -56,42 +57,9 @@ export default function NewCard({ handleSubmit }) {
         />
         <label htmlFor="floatingPasswordCustom">Слово на русском</label>
       </Form.Floating>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" className="mt-3">
         Добавить
       </Button>
     </Form>
   );
 }
-
-
-// этот хендлер должен быть на странице личного кабинета
-
-const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await axios.post('/api/new', input);
-      if (response.status === 200) {
-        window.location = '/account';
-      }
-    } catch (error) {
-      console.log(error);
-      alert(error.data.message);
-    }
-  };
-
-// эта ручка должна быть в apiRouter
-
-  apiRouter.post('/new', async (req, res) => {
-    const { word_eng, word_rus, theme_name } = req.body;
-    if (!word_eng || !word_rus || !theme_name) return res.status(400).json({ message: 'Пожалуйста, заполните все поля' });
-  
-    await Theme.create(theme_name)
-
-    const [newCard, created] = await Card.findOrCreate({
-      where: { word_eng },
-      defaults: { word_rus, theme_id }, // как выташить айди темы???
-    });
-  
-    if (!created) return res.status(403).json({ message: 'Такая карточка уже существует' });
-  
-  });
