@@ -5,11 +5,11 @@ import cookieParser from 'cookie-parser';
 import 'dotenv/config';
 import jsxRender from './utils/jsxRender';
 import indexRouter from './routes/render/indexRouter';
-// import apiRouter from './routes/api/apiRouter';
+import apiRouter from './routes/api/apiRouter';
 import resLocals from './middlewares/resLocals';
 import apiAuthRouter from './routes/api/apiAuthRouter';
 import authRouter from './routes/render/authRouter';
-import apiRouter from './routes/api/apiRouter';
+import apiProgressRouter from './routes/api/apiProgressRouter';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -29,5 +29,6 @@ app.use('/', indexRouter);
 app.use('/api', apiRouter);
 app.use('/auth', authRouter);
 app.use('/api/auth', apiAuthRouter);
+app.use('/api/progress', apiProgressRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));
