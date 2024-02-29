@@ -12,8 +12,9 @@ router.get('/themes', async (req, res) => {
   res.render('ChoosePage', { themes });
 });
 
-router.get('/cardpage', async (req, res) => {
-  const allThemes = await Card.findAll();
+router.get('/cardpage/:id', async (req, res) => {
+  const { id } = req.params;
+  const allThemes = await Card.findAll({ where: { theme_id: id } });
   res.render('CardPage', { allThemes });
 });
 
