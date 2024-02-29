@@ -1,5 +1,7 @@
 import express from 'express';
-import { Card, Theme } from '../../../db/models';
+import {
+  Theme, Card, Progress,
+} from '../../../db/models';
 
 const router = express.Router();
 
@@ -16,5 +18,17 @@ router.get('/cardpage', async (req, res) => {
   const allThemes = await Card.findAll();
   res.render('CardPage', { allThemes });
 });
+router.get('/account', async (req, res) => {
+  const allCards = await Card.findAll();
 
+  const themes = await Theme.findAll();
+
+  const answers = await Progress.findAll({
+    where: {
+      id: res.locals.user.id,
+    },
+  });
+  const initState = [allCards, themes, answers];
+  res.render('UserPage', { initState });
+});
 export default router;

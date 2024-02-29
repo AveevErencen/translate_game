@@ -1,10 +1,10 @@
 import React from 'react';
 import NavBar from './ui/NavBar';
 
-export default function App({ children, user }) {
+export default function App({ children, user, initState }) {
   return (
     <>
-      <NavBar user={user} />
+      <NavBar initState={initState} user={user} />
       <div>
         {children}
       </div>
