@@ -11,8 +11,14 @@ router.get('/', (req, res) => {
 router.get('/search', async (req, res) => {
   try {
     const { text } = req.query;
-    const findtheme = await Theme.findAll({ where: { theme_name: { [Op.like]: `%${text}%` } } });
-    console.log(findtheme, '---------------');
+
+    const where = {};
+
+    if (text !== '') {
+      where.theme_name = { [Op.iLike]: `%${text}%` };
+    }
+    const findtheme = await Theme.findAll({ where });
+
     res.json(findtheme);
   } catch (error) {
     console.log(error).send(error);
