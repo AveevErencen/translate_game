@@ -8,7 +8,6 @@ export default function SignupPage() {
     event.preventDefault();
     try {
       const formData = Object.fromEntries(new FormData(event.target));
-      console.log(formData);
       const response = await axios.post('/api/auth/signup', formData);
       if (response.status === 200) {
         window.location = '/themes';
