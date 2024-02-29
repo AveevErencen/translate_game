@@ -30,7 +30,22 @@ export default function OneTheme({ themes }) {
   };
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+    <div className="container">
+      {themes?.map((theme) => (
+        <div className="card" key={theme.id}>
+          <div className="cardBody">
+            <div className="wordBox">
+              <h1>{theme.theme_name}</h1>
+            </div>
+            <button onClick={() => clickHandler(theme.id)} name="button_translate" type="button">Выбор</button>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+{ /* <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
       {themes?.map((theme) => (
         <Card key={theme.id} style={oneCardStyle}>
           <Card.Body style={oneCardStyle}>
@@ -41,6 +56,4 @@ export default function OneTheme({ themes }) {
           </Card.Body>
         </Card>
       ))}
-    </div>
-  );
-}
+    </div> */ }

@@ -7,6 +7,10 @@ export default function UserPage({ user, initState }) {
   const allCardsArr = initState[0];
   const allThemeArr = initState[1];
   const progressArr = initState[2];
+  console.log(progressArr);
+  // const [allCards, setAllCards] = useState(allCardsArr);
+  // const [allTheme, setAllCards] = useState(allThemeArr);
+  // const [allProgress, setAllCards] = useState(progressArr);
 
   const containerStyle = {
     marginTop: '70px',
