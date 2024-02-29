@@ -9,7 +9,7 @@ export default function CardPage({ allCards }) {
   const [cards, setAllCards] = useState(allCards);
 
   const deleteHandler = async ({ cardId, cardThemeId }) => {
-    console.log(cardId, cardThemeId);
+    // console.log(cardId, cardThemeId);
     const response = await axios.post('/api/card', { cardId, cardThemeId });
     if (response.status === 200) {
       setAllCards((prev) => prev.filter((card) => card.id !== cardId));
