@@ -23,18 +23,34 @@ export default function ChoosePage({ themes }) {
 
   return (
     <>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <InputGroup style={{ width: '400px' }} className="mb-3">
-          <InputGroup.Text id="basic-addon1">Поиск по темам</InputGroup.Text>
-          <Form.Control
+      <div className="container">
+        <div className="inputGroup">
+          <div className="inputGroupText">Поиск по темам</div>
+          <input
             value={findTheme}
             onChange={chandgeHandler}
             placeholder="Выберите тему"
             type="text"
+            className="formControl"
           />
-        </InputGroup>
+        </div>
       </div>
       <OneTheme themes={oneTheme} />
     </>
   );
 }
+
+{ /* <>
+<div style={{ display: 'flex', justifyContent: 'center' }}>
+  <InputGroup style={{ width: '400px' }} className="mb-3">
+    <InputGroup.Text id="basic-addon1">Поиск по темам</InputGroup.Text>
+    <Form.Control
+      value={findTheme}
+      onChange={chandgeHandler}
+      placeholder="Выберите тему"
+      type="text"
+    />
+  </InputGroup>
+</div>
+<OneTheme themes={oneTheme} />
+</> */ }
