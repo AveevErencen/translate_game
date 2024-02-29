@@ -9,7 +9,6 @@ import apiRouter from './routes/api/apiRouter';
 import resLocals from './middlewares/resLocals';
 import apiAuthRouter from './routes/api/apiAuthRouter';
 import authRouter from './routes/render/authRouter';
-import apiRouter from './routes/api/apiRouter';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
