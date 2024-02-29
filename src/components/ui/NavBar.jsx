@@ -1,15 +1,23 @@
 import React from 'react';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container';
 
 export default function NavBar({ user }) {
-  const navLinkStyle = {
-    fontSize: '1.2em',
-    fontWeight: 'bold',
-  };
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <div className="navbar">
+      <div className="container">
+        <div className="brand-name">
+          <a className="navbar-brand">English - Easy</a>
+        </div>
+        <div className="navbar-links">
+          {user ? <a href="/account">{user.name}</a> : <a href="/auth/signin">Войти</a>}
+          {user && <a href="/themes">Выбрать тему</a>}
+          {user ? <a href="/auth/logout">Выйти</a> : <a href="/auth/signup">Зарегистрироваться</a>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+{ /* <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand href="#home" />
         <a className="navbar-brand">EnglishLearningApp</a>
@@ -24,6 +32,4 @@ export default function NavBar({ user }) {
           </Nav>
         </Navbar.Collapse>
       </Container>
-    </Navbar>
-  );
-}
+    </Navbar> */ }
