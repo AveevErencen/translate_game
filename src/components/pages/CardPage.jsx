@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
@@ -31,10 +31,24 @@ export default function CardPage({ allThemes }) {
     margin: '20px',
   };
 
+  //   const ModalButton = () => {
+  //     const [modalOpen, setModalOpen] = useState(false)
+  // }
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   return (
     <div style={allCardsStyle}>
       {allThemes?.map((theme) => (
-        <Card style={oneCardStyle}>
+        <Card style={oneCardStyle} key={theme.id}>
           <Card.Body style={oneCardStyle}>
             <div style={wordBoxStyle}>
               <Card.Title>{theme.word_eng}</Card.Title>
@@ -46,3 +60,15 @@ export default function CardPage({ allThemes }) {
     </div>
   );
 }
+
+{ /* <div>
+        <button onClick={openModal}>Открыть модальное окно</button>
+        {modalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={closeModal}>&times;</span>
+            <p>Содержимое модального окна здесь</p>
+          </div>
+        </div>
+        )}
+      </div> */ }
