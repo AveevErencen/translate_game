@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 
-export default function OneTheme({ themes }) {
+export default function OneTheme({ theme }) {
   const wordBoxStyle = {
     display: 'flex',
     justifyContent: 'center',
@@ -31,16 +31,21 @@ export default function OneTheme({ themes }) {
 
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-      {themes?.map((theme) => (
-        <Card key={theme.id} style={oneCardStyle}>
-          <Card.Body style={oneCardStyle}>
-            <div style={wordBoxStyle}>
-              <Card.Title>{theme.theme_name}</Card.Title>
-            </div>
-            <Button onClick={() => clickHandler(theme.id)} name="button_translate" type="button" variant="primary">Выбор</Button>
-          </Card.Body>
-        </Card>
-      ))}
+      <Card key={theme.id} style={oneCardStyle}>
+        <Card.Body style={oneCardStyle}>
+          <div style={wordBoxStyle}>
+            <Card.Title>{theme.theme_name}</Card.Title>
+          </div>
+          <Button
+            onClick={() => clickHandler(theme.id)}
+            name="button_translate"
+            type="button"
+            variant="primary"
+          >
+            Выбор
+          </Button>
+        </Card.Body>
+      </Card>
     </div>
   );
 }

@@ -5,7 +5,7 @@ export default function App({ children, user, initState }) {
   return (
     <>
       <NavBar initState={initState} user={user} />
-      <div>
+      <div className="divApp">
         {children}
       </div>
     </>

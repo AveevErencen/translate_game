@@ -1,6 +1,6 @@
 import express from 'express';
 import { Op } from 'sequelize';
-import { Theme, Progress } from '../../../db/models';
+import { Theme, Card, Progress } from '../../../db/models';
 
 const router = express.Router();
 
@@ -22,6 +22,25 @@ router.get('/search', async (req, res) => {
     res.json(findtheme);
   } catch (error) {
     console.log(error).send(error);
+  }
+});
+
+router.post('/new', async (req, res) => {
+  const { word_eng, word_rus, theme_name } = req.body;
+  if (!word_eng || !word_rus || !theme_name)
+    return res.status(400).json({ message: 'Пожалуйста, заполните все поля' });
+
+  const [newTheme, created] = await Theme.findOrCreate({
+    where: { theme_name },
+  });
+
+  if (created) {
+    await Card.create({ word_eng, word_rus, theme_id: newTheme.id });
+  } else {
+    const findTheme = await Theme.findOne({
+      where: { theme_name },
+    });
+    await Card.create({ word_eng, word_rus, theme_id: findTheme.id });
   }
 });
 
