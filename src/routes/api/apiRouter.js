@@ -1,6 +1,6 @@
 import express from 'express';
 import { Op } from 'sequelize';
-import { Theme } from '../../../db/models';
+import { Theme, Progress } from '../../../db/models';
 
 const router = express.Router();
 
@@ -17,6 +17,13 @@ router.get('/search', async (req, res) => {
   } catch (error) {
     console.log(error).send(error);
   }
+});
+
+router.post('/card', async (req, res) => {
+  const { cardId, cardThemeId } = req.body;
+  console.log('dfds', cardId, cardThemeId);
+  await Progress.create({ user_id: res.locals.user.id, card_id: cardId, theme_id: cardThemeId });
+  res.sendStatus(200);
 });
 
 export default router;

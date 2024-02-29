@@ -16,8 +16,8 @@ router.get('/themes', async (req, res) => {
 
 router.get('/cardpage/:id', async (req, res) => {
   const { id } = req.params;
-  const allThemes = await Card.findAll({ where: { theme_id: id } });
-  res.render('CardPage', { allThemes });
+  const allCards = await Card.findAll({ where: { theme_id: id } });
+  res.render('CardPage', { allCards });
 });
 router.get('/account', async (req, res) => {
   const allCards = await Card.findAll();
