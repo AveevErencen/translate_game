@@ -97,6 +97,7 @@ export default function CardPage({ allThemes }) {
   );
 }
 
+
 // entriesApiRouter.delete('/api/songs/:id', async (req, res) => {
 //   const { id } = req.params;
 //   await Entry.destroy({ where: { id } });
