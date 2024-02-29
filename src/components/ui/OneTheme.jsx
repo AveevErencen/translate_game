@@ -23,8 +23,12 @@ export default function OneTheme({ themes }) {
     justifyContent: 'flexStart',
     flexDirection: 'column',
     width: '18rem',
-
   };
+
+  const clickHandler = (id) => {
+    window.location.href = `/cardpage/${id}`;
+  };
+
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
       {themes?.map((theme) => (
@@ -33,7 +37,7 @@ export default function OneTheme({ themes }) {
             <div style={wordBoxStyle}>
               <Card.Title>{theme.theme_name}</Card.Title>
             </div>
-            <Button name="button_translate" type="button" variant="primary">Выбор</Button>
+            <Button onClick={() => clickHandler(theme.id)} name="button_translate" type="button" variant="primary">Выбор</Button>
           </Card.Body>
         </Card>
       ))}
