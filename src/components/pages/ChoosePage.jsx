@@ -6,7 +6,7 @@ import OneTheme from '../ui/OneTheme';
 
 export default function ChoosePage({ themes }) {
   const [findTheme, setFindTheme] = useState('');
-  const [oneTheme, setOneTheme] = useState([]);
+  const [oneTheme, setOneTheme] = useState(themes);
 
   const chandgeHandler = (e) => {
     setFindTheme(e.target.value);
@@ -14,11 +14,10 @@ export default function ChoosePage({ themes }) {
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      if (findTheme.length > 0) {
-        axios(`/api/search?text=${findTheme}`)
-          .then((res) => setOneTheme(res.data));
-      }
+      axios(`/api/search?text=${findTheme}`)
+        .then((res) => setOneTheme(res.data));
     }, 1000);
+
     return () => clearTimeout(timeoutId);
   }, [findTheme]);
 
@@ -32,12 +31,10 @@ export default function ChoosePage({ themes }) {
             onChange={chandgeHandler}
             placeholder="Выберите тему"
             type="text"
-            // aria-label="Username"
-            // aria-describedby="basic-addon1"
           />
         </InputGroup>
       </div>
-      <OneTheme themes={themes} />
+      <OneTheme themes={oneTheme} />
     </>
   );
 }
