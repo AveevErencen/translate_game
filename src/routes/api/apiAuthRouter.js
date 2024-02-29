@@ -25,6 +25,7 @@ apiAuthRouter.post('/signin', async (req, res) => {
 
 apiAuthRouter.post('/signup', async (req, res) => {
   const { email, name, password } = req.body;
+  console.log(email, name, password);
   if (!email || !name || !password) return res.status(400).json({ message: 'Пожалуйста заполните все поля!' });
 
   const [newUser, created] = await User.findOrCreate({
