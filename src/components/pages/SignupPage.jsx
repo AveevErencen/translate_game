@@ -1,7 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 
 export default function SignupPage() {
   const handleSubmit = async (event) => {
@@ -19,7 +17,24 @@ export default function SignupPage() {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <div className="form-container" onSubmit={handleSubmit}>
+      <form id="myForm" action="#" method="POST">
+        <label htmlFor="name">Имя</label>
+        <input type="text" name="name" id="name" aria-describedby="nameHelpBlock" />
+
+        <label htmlFor="email">Email</label>
+        <input type="email" name="email" id="email" aria-describedby="emailHelpBlock" />
+
+        <label htmlFor="password">Пароль</label>
+        <input type="password" name="password" id="password" aria-describedby="passwordHelpBlock" />
+
+        <button type="submit">Отправить</button>
+      </form>
+    </div>
+  );
+}
+
+{ /* <Form onSubmit={handleSubmit}>
       <Form.Label htmlFor="inputPassword5">Имя</Form.Label>
       <Form.Control name="name" type="name" id="inputName" aria-describedby="passwordHelpBlock" />
       <Form.Label htmlFor="inputPassword5">Email</Form.Label>
@@ -36,9 +51,6 @@ export default function SignupPage() {
         id="inputPassword"
         aria-describedby="passwordHelpBlock"
       />
-      <Button type="submit" variant="secondary">
-        Отправить
-      </Button>{' '}
-    </Form>
-  );
-}
+      <Button type="submit" variant="secondary">Отправить</Button>
+      {' '}
+    </Form> */ }

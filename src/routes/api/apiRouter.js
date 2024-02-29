@@ -1,6 +1,6 @@
 import express from 'express';
 import { Op } from 'sequelize';
-import { Theme, Card } from '../../../db/models';
+import { Theme, Card, Progress } from '../../../db/models';
 
 const router = express.Router();
 
@@ -11,8 +11,14 @@ router.get('/', (req, res) => {
 router.get('/search', async (req, res) => {
   try {
     const { text } = req.query;
-    const findtheme = await Theme.findAll({ where: { theme_name: { [Op.like]: `%${text}%` } } });
-    console.log(findtheme, '---------------');
+
+    const where = {};
+
+    if (text !== '') {
+      where.theme_name = { [Op.iLike]: `%${text}%` };
+    }
+    const findtheme = await Theme.findAll({ where });
+
     res.json(findtheme);
   } catch (error) {
     console.log(error).send(error);
@@ -36,13 +42,12 @@ router.post('/new', async (req, res) => {
     });
     await Card.create({ word_eng, word_rus, theme_id: findTheme.id });
   }
+});
 
-  // const [newCard, created] = await Card.create({
-  //   where: { word_eng },
-  //   defaults: { word_rus, theme_id: createdTheme.id },
-  // });
-
-  // if (!created) return res.status(403).json({ message: 'Такая карточка уже существует' });
+router.post('/card', async (req, res) => {
+  const { cardId, cardThemeId } = req.body;
+  await Progress.create({ user_id: res.locals.user.id, card_id: cardId, theme_id: cardThemeId });
+  res.sendStatus(200);
 });
 
 export default router;

@@ -19,7 +19,21 @@ export default function SigninPage() {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <div className="form-container">
+      <form id="myForm" action="#" method="POST" onSubmit={handleSubmit}>
+        <label htmlFor="email">Email</label>
+        <input type="email" name="email" id="email" aria-describedby="emailHelpBlock" />
+
+        <label htmlFor="password">Пароль</label>
+        <input type="password" name="password" id="password" aria-describedby="passwordHelpBlock" />
+
+        <button type="submit">Отправить</button>
+      </form>
+    </div>
+  );
+}
+
+{ /* <Form onSubmit={handleSubmit}>
       <Form.Label htmlFor="inputPassword5">Email</Form.Label>
       <Form.Control
         name="email"
@@ -36,6 +50,4 @@ export default function SigninPage() {
       />
       <Button type="submit" variant="secondary">Отправить</Button>
       {' '}
-    </Form>
-  );
-}
+    </Form> */ }
