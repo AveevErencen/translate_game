@@ -1,6 +1,5 @@
 import express from 'express';
-import { Card } from '../../../db/models';
-import { Theme } from '../../../db/models';
+import { Card, Theme } from '../../../db/models';
 
 const router = express.Router();
 
