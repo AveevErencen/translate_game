@@ -12,11 +12,20 @@ router.get('/themes', async (req, res) => {
   res.render('ChoosePage', { themes });
 });
 
-router.get('/cardpage', async (req, res) => {
-  const allThemes = await Card.findAll(); // Надо поменять на allCards
+router.get('/cardpage/:id', async (req, res) => {
+  const { id } = req.params;
+  const allThemes = await Card.findAll({ where: { theme_id: id } });
   res.render('CardPage', { allThemes });
 });
-
-
-
+router.get('/account', async (req, res) => {
+  const allCards = await Card.findAll();
+  const themes = await Theme.findAll();
+  const answers = await Progress.findAll({
+    where: {
+      id: res.locals.user.id,
+    },
+  });
+  const initState = [allCards, themes, answers];
+  res.render('UserPage', { initState });
+});
 export default router;
