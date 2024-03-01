@@ -15,14 +15,18 @@ export default function NewCard({ handleSubmit }) {
       [e.target.name]: e.target.value,
     }));
   };
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    handleSubmit(e, input);
+    setInput({
+      word_eng: '',
+      word_rus: '',
+      theme_name: '',
+    });
+  };
 
   return (
-    <Form
-      onSubmit={(e) => {
-        e.preventDefault();
-        handleSubmit(e, input);
-      }}
-    >
+    <Form onSubmit={handleFormSubmit}>
       <h2>Создать новую карточку</h2>
       <Form.Floating className="mb-3">
         <Form.Control

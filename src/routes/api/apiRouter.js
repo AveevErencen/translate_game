@@ -5,7 +5,7 @@ import { Theme, Card, Progress } from '../../../db/models';
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.json({ hello: 'world' });
+  res.json({ hello: 'world' }); // Добавить на первую страницу
 });
 
 router.get('/search', async (req, res) => {
