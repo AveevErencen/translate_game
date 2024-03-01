@@ -28,7 +28,7 @@ export default function SignupPage() {
         <label htmlFor="password">Пароль</label>
         <input type="password" name="password" id="password" aria-describedby="passwordHelpBlock" />
 
-        <button type="submit">Отправить</button>
+        <button type="submit">Зарегистрироваться</button>
       </form>
     </div>
   );

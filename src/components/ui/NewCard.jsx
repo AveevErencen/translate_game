@@ -27,7 +27,7 @@ export default function NewCard({ handleSubmit }) {
 
   return (
     <Form onSubmit={handleFormSubmit}>
-      <h2>Создать новую карточку</h2>
+      <h4>Создать новую карточку</h4>
       <Form.Floating className="mb-3">
         <Form.Control
           name="theme_name"

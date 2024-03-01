@@ -45,7 +45,6 @@ router.post('/new', async (req, res) => {
 
 router.post('/card', async (req, res) => {
   const { cardId, cardThemeId } = req.body;
-  // console.log('dfds', cardId, cardThemeId);
   await Progress.create({ user_id: res.locals.user.id, card_id: cardId, theme_id: cardThemeId });
   res.sendStatus(200);
 });
