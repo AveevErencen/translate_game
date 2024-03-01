@@ -24,9 +24,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(resLocals);
 
-app.use('/', indexRouter);
 app.use('/api', apiRouter);
 app.use('/auth', authRouter);
 app.use('/api/auth', apiAuthRouter);
+
+app.use('/', indexRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));
