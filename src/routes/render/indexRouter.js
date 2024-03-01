@@ -9,18 +9,21 @@ router.get('/', (req, res) => {
 
 router.get('/themes', async (req, res) => {
   const themes = await Theme.findAll();
+  console.log(themes);
   res.render('ChoosePage', { themes });
 });
 
 router.get('/cardpage/:id', async (req, res) => {
   const { id } = req.params;
   const allCards = await Card.findAll({ where: { theme_id: id } });
-  // const answers = await Progress.findAll({
-  //   where: {
-  //     id: res.locals.user.id,
-  //   },
-  // });
-  res.render('CardPage', { allCards });
+  const answers = await Progress.findAll({
+    where: {
+      user_id: res.locals.user.id,
+    },
+  });
+  const cardIds = answers.map((el) => el.card_id);
+  const findCards = allCards.filter((card) => !cardIds.includes(card.id));
+  res.render('CardPage', { findCards, answers });
 });
 
 router.get('/account', async (req, res) => {
@@ -28,7 +31,7 @@ router.get('/account', async (req, res) => {
   const themes = await Theme.findAll();
   const answers = await Progress.findAll({
     where: {
-      id: res.locals.user.id,
+      user_id: res.locals.user.id,
     },
   });
   const initState = [allCards, themes, answers];
