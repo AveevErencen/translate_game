@@ -28,7 +28,7 @@ router.get('/account', async (req, res) => {
   const themes = await Theme.findAll();
   const answers = await Progress.findAll({
     where: {
-      id: res.locals.user.id,
+      user_id: res.locals.user.id,
     },
   });
   const initState = [allCards, themes, answers];

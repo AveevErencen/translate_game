@@ -5,6 +5,7 @@ import SigninPage from './pages/SigninPage';
 import ChoosePage from './pages/ChoosePage';
 import UserPage from './pages/UserPage';
 import CardPage from './pages/CardPage';
+import OneCard from './ui/OneCard';
 
 const components = {
   IndexPage,
@@ -14,6 +15,7 @@ const components = {
   ChoosePage,
   UserPage,
   CardPage,
+  OneCard,
 };
 
 export default components;
