@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Col, Row, Container, Button, Modal, Form } from 'react-bootstrap';
+import { Col, Row, Container, Button, Form } from 'react-bootstrap';
 import axios from 'axios';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import NewCard from '../ui/NewCard';
@@ -147,7 +147,7 @@ export default function UserPage({ user, initState }) {
                   <label htmlFor="floatingPasswordCustom">Введите пароль</label>
                 </Form.Floating>
                 <Button variant="primary" type="submit" className="mt-3">
-                  Добавить
+                  Изменить
                 </Button>
               </Form>
             </Row>
