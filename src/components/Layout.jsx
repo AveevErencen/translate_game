@@ -12,7 +12,7 @@ export default function Layout({ children, initState }) {
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
           crossOrigin="anonymous"
         />
-      
+        <link rel="stylesheet" href="/styles/style.css" />
         <script defer src="/app.js" />
         <script defer src="/vendor.js" />
         <script
