@@ -25,6 +25,7 @@ router.get('/cardpage/:id', async (req, res) => {
   const findCards = allCards.filter((card) => !cardIds.includes(card.id));
   res.render('CardPage', { findCards, answers });
 });
+
 router.get('/account', async (req, res) => {
   const allCards = await Card.findAll();
   const themes = await Theme.findAll();
