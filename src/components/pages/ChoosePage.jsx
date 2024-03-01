@@ -14,9 +14,8 @@ export default function ChoosePage({ themes }) {
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      axios(`/api/search?text=${findTheme}`)
-        .then((res) => setOneTheme(res.data));
-    }, 1000);
+      axios(`/api/search?text=${findTheme}`).then((res) => setOneTheme(res.data));
+    }, 700);
 
     return () => clearTimeout(timeoutId);
   }, [findTheme]);
@@ -39,18 +38,3 @@ export default function ChoosePage({ themes }) {
     </>
   );
 }
-
-{ /* <>
-<div style={{ display: 'flex', justifyContent: 'center' }}>
-  <InputGroup style={{ width: '400px' }} className="mb-3">
-    <InputGroup.Text id="basic-addon1">Поиск по темам</InputGroup.Text>
-    <Form.Control
-      value={findTheme}
-      onChange={chandgeHandler}
-      placeholder="Выберите тему"
-      type="text"
-    />
-  </InputGroup>
-</div>
-<OneTheme themes={oneTheme} />
-</> */ }
