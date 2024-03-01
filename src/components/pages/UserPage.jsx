@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Col, Row, Container, Button, Modal, Form } from 'react-bootstrap';
+import {
+  Col, Row, Container, Button, Modal, Form,
+} from 'react-bootstrap';
 import axios from 'axios';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import NewCard from '../ui/NewCard';
@@ -66,73 +68,89 @@ export default function UserPage({ user, initState }) {
   };
 
   return (
-    <Container style={containerStyle}>
-      <h2>Личный кабинет</h2>
-      <Row style={rowStyle}>
-        <Col style={rowStyle}>
-          <h4 style={containerStyle}>Информация о пользователе:</h4>
-          <p style={containerStyle}>
-            <strong>Имя:</strong> {userName}
-          </p>
-          <p>
-            <strong>Email:</strong> {user.email}
-          </p>
-          <h4>Прогресс обучения</h4>
-          {allThemeArr?.map((theme, index) => {
-            const completed = progressArr.filter((elem) => elem.theme_id === theme.id).length;
-            const total = allCardsArr.filter((card) => card.theme_id === theme.id).length;
-            const now = Math.floor((completed / total) * 100);
-            return (
-              <p key={theme.id}>
-                {`${index + 1}.${theme.theme_name}   `}
-                <ProgressBar now={now} label={`${now}%`} />
-              </p>
-            );
-          })}
-        </Col>
-      </Row>
-      <Button
-        onClick={() => setModalActive(true)}
-        name="button_update"
-        type="button"
-        variant="primary"
-      >
-        Редактировать профиль
-      </Button>
-      <ModalInput active={modalActive} setActive={setModalActive}>
-        <Row>
-          <Form onSubmit={editHandler}>
-            <Form.Floating className="mb-3">
-              <Form.Control
-                name="name"
-                value={editInput.name}
-                onChange={handleChange}
-                id="floatingNameCustom"
-                type="text"
-                placeholder="Имя"
-              />
-              <label htmlFor="floatingNameCustom">Введите имя</label>
-            </Form.Floating>
-            <Form.Floating>
-              <Form.Control
-                name="password"
-                value={editInput.password}
-                onChange={handleChange}
-                id="floatingPasswordCustom"
-                type="password"
-                placeholder="Пароль"
-              />
-              <label htmlFor="floatingPasswordCustom">Введите пароль</label>
-            </Form.Floating>
-            <Button variant="primary" type="submit" className="mt-3">
-              Добавить
+    <>
+      <div className="accMainDiv">
+        <div>
+          <Container style={containerStyle}>
+            <h2>Личный кабинет</h2>
+            <Row style={rowStyle}>
+              <Col style={rowStyle}>
+
+                <h4 style={containerStyle}>Информация о пользователе:</h4>
+                <p style={containerStyle}>
+                  <strong>Имя:</strong>
+                  {' '}
+                  {userName}
+                </p>
+                <p>
+                  <strong>Email:</strong>
+                  {' '}
+                  {user.email}
+                </p>
+                <h4>Прогресс обучения</h4>
+                {allThemeArr?.map((theme, index) => {
+                  const completed = progressArr.filter((elem) => elem.theme_id === theme.id).length;
+                  const total = allCardsArr.filter((card) => card.theme_id === theme.id).length;
+                  const now = Math.floor((completed / total) * 100);
+                  return (
+                    <p key={theme.id}>
+                      {`${index + 1}.${theme.theme_name}   `}
+                      <ProgressBar now={now} label={`${now}%`} />
+                    </p>
+                  );
+                })}
+              </Col>
+            </Row>
+            <Button
+              onClick={() => setModalActive(true)}
+              name="button_update"
+              type="button"
+              variant="primary"
+            >
+              Редактировать профиль
             </Button>
-          </Form>
-        </Row>
-      </ModalInput>
-      <Col xs={6}>
-        <NewCard handleSubmit={handleSubmit} />
-      </Col>
-    </Container>
+          </Container>
+        </div>
+
+        <div>
+          <NewCard handleSubmit={handleSubmit} />
+        </div>
+      </div>
+
+      <div>
+        <ModalInput active={modalActive} setActive={setModalActive}>
+          <Row>
+            <Form onSubmit={editHandler}>
+              <Form.Floating className="mb-3">
+                <Form.Control
+                  name="name"
+                  value={editInput.name}
+                  onChange={handleChange}
+                  id="floatingNameCustom"
+                  type="text"
+                  placeholder="Имя"
+                />
+                <label htmlFor="floatingNameCustom">Введите имя</label>
+              </Form.Floating>
+              <Form.Floating>
+                <Form.Control
+                  name="password"
+                  value={editInput.password}
+                  onChange={handleChange}
+                  id="floatingPasswordCustom"
+                  type="password"
+                  placeholder="Пароль"
+                />
+                <label htmlFor="floatingPasswordCustom">Введите пароль</label>
+              </Form.Floating>
+              <Button variant="primary" type="submit" className="mt-3">
+                Добавить
+              </Button>
+            </Form>
+          </Row>
+        </ModalInput>
+        <Col xs={6} />
+      </div>
+    </>
   );
 }
