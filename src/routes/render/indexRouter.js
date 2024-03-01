@@ -14,20 +14,22 @@ router.get('/themes', async (req, res) => {
 
 router.get('/cardpage/:id', async (req, res) => {
   const { id } = req.params;
-  const allThemes = await Card.findAll({ where: { theme_id: id } });
+  const allCards = await Card.findAll({ where: { theme_id: id } });
   const answers = await Progress.findAll({
     where: {
-      id: res.locals.user.id,
+      user_id: res.locals.user.id,
     },
   });
-  res.render('CardPage', { allThemes, answers });
+  const cardIds = answers.map((el) => el.card_id);
+  const findCards = allCards.filter((card) => !cardIds.includes(card.id));
+  res.render('CardPage', { findCards, answers });
 });
 router.get('/account', async (req, res) => {
   const allCards = await Card.findAll();
   const themes = await Theme.findAll();
   const answers = await Progress.findAll({
     where: {
-      id: res.locals.user.id,
+      user_id: res.locals.user.id,
     },
   });
   const initState = [allCards, themes, answers];
