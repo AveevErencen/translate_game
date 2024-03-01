@@ -19,7 +19,6 @@ export default function UserPage({ user, initState }) {
   const containerStyle = {
     marginTop: '70px',
     display: 'flex',
-    flexDirection: 'column',
   };
 
   const rowStyle = {
@@ -66,73 +65,104 @@ export default function UserPage({ user, initState }) {
   };
 
   return (
-    <Container style={containerStyle}>
-      <h2>Личный кабинет</h2>
-      <Row style={rowStyle}>
-        <Col style={rowStyle}>
-          <h4 style={containerStyle}>Информация о пользователе:</h4>
-          <p style={containerStyle}>
-            <strong>Имя:</strong> {userName}
-          </p>
-          <p>
-            <strong>Email:</strong> {user.email}
-          </p>
-          <h4>Прогресс обучения</h4>
-          {allThemeArr?.map((theme, index) => {
-            const completed = progressArr.filter((elem) => elem.theme_id === theme.id).length;
-            const total = allCardsArr.filter((card) => card.theme_id === theme.id).length;
-            const now = Math.floor((completed / total) * 100);
-            return (
-              <p key={theme.id}>
-                {`${index + 1}.${theme.theme_name}   `}
-                <ProgressBar now={now} label={`${now}%`} />
-              </p>
-            );
-          })}
-        </Col>
-      </Row>
-      <Button
-        onClick={() => setModalActive(true)}
-        name="button_update"
-        type="button"
-        variant="primary"
+    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      <div
+        style={{
+          marginTop: '20px',
+          display: 'flex',
+          justifyContent: 'center',
+        }}
       >
-        Редактировать профиль
-      </Button>
-      <ModalInput active={modalActive} setActive={setModalActive}>
-        <Row>
-          <Form onSubmit={editHandler}>
-            <Form.Floating className="mb-3">
-              <Form.Control
-                name="name"
-                value={editInput.name}
-                onChange={handleChange}
-                id="floatingNameCustom"
-                type="text"
-                placeholder="Имя"
-              />
-              <label htmlFor="floatingNameCustom">Введите имя</label>
-            </Form.Floating>
-            <Form.Floating>
-              <Form.Control
-                name="password"
-                value={editInput.password}
-                onChange={handleChange}
-                id="floatingPasswordCustom"
-                type="password"
-                placeholder="Пароль"
-              />
-              <label htmlFor="floatingPasswordCustom">Введите пароль</label>
-            </Form.Floating>
-            <Button variant="primary" type="submit" className="mt-3">
-              Добавить
+        <h2>Личный кабинет</h2>
+      </div>
+      <div
+        style={{
+          width: '100vw',
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
+        <Container style={containerStyle}>
+          <Col style={rowStyle}>
+            <h4>Информация о пользователе</h4>
+            <p>
+              <strong>
+                Имя:
+                {` ${userName}`}
+              </strong>
+            </p>
+            <p>
+              <strong>
+                Email:
+                {` ${user.email}`}
+              </strong>
+            </p>
+            <Button
+              onClick={() => setModalActive(true)}
+              name="button_update"
+              type="button"
+              variant="primary"
+            >
+              Редактировать профиль
             </Button>
-          </Form>
-        </Row>
-      </ModalInput>
-      <Col xs={6}>
-        <NewCard handleSubmit={handleSubmit} />
-      </Col>
-    </Container>
+            <br />
+            <br />
+            <h4>Прогресс обучения</h4>
+            {allThemeArr?.map((theme, index) => {
+              const completed = progressArr.filter((elem) => elem.theme_id === theme.id).length;
+              const total = allCardsArr.filter((card) => card.theme_id === theme.id).length;
+              const now = Math.floor((completed / total) * 100);
+              return (
+                <p key={theme.id}>
+                  {`${index + 1}.${theme.theme_name}   `}
+                  <ProgressBar now={now} label={`${now}%`} />
+                </p>
+              );
+            })}
+          </Col>
+
+          <ModalInput active={modalActive} setActive={setModalActive}>
+            <Row>
+              <Form onSubmit={editHandler}>
+                <Form.Floating className="mb-3">
+                  <Form.Control
+                    name="name"
+                    value={editInput.name}
+                    onChange={handleChange}
+                    id="floatingNameCustom"
+                    type="text"
+                    placeholder="Имя"
+                  />
+                  <label htmlFor="floatingNameCustom">Введите имя</label>
+                </Form.Floating>
+                <Form.Floating>
+                  <Form.Control
+                    name="password"
+                    value={editInput.password}
+                    onChange={handleChange}
+                    id="floatingPasswordCustom"
+                    type="password"
+                    placeholder="Пароль"
+                  />
+                  <label htmlFor="floatingPasswordCustom">Введите пароль</label>
+                </Form.Floating>
+                <Button variant="primary" type="submit" className="mt-3">
+                  Добавить
+                </Button>
+              </Form>
+            </Row>
+          </ModalInput>
+          <Col
+            xs={6}
+            style={{
+              marginLeft: '200px',
+              marginBottom: '210px',
+            }}
+          >
+            <NewCard handleSubmit={handleSubmit} />
+          </Col>
+        </Container>
+      </div>
+    </div>
   );
 }

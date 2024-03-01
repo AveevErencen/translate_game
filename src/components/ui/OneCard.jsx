@@ -10,17 +10,22 @@ export default function OneCard({ el, deleteHandler }) {
 
   return (
     <div>
-      <ReactCardFlip
-        isFlipped={flip}
-        flipDirection="vertical"
-      >
+      <ReactCardFlip isFlipped={flip} flipDirection="vertical">
         <div style={genBackground}>
           <Card style={frontCardStyle} key={oneCard.id}>
             <Card.Body style={innerCardStyle}>
               <div style={wordBoxStyle}>
                 <Card.Title>{oneCard.word_eng}</Card.Title>
               </div>
-              <Button style={translateButtStyle} name="button_translate" type="button" variant="primary" onClick={() => setFlip(!flip)}>Перевод</Button>
+              <Button
+                style={translateButtStyle}
+                name="button_translate"
+                type="button"
+                variant="primary"
+                onClick={() => setFlip(!flip)}
+              >
+                Перевод
+              </Button>
             </Card.Body>
           </Card>
         </div>
@@ -32,15 +37,31 @@ export default function OneCard({ el, deleteHandler }) {
                 <Card.Title>{oneCard.word_rus}</Card.Title>
               </div>
               <div style={{ display: 'flex' }}>
-                <Button style={translateButtStyle} name="button_delete" type="button" variant="primary" onClick={() => deleteHandler({ cardId: oneCard.id, cardThemeId: oneCard.theme_id })}>Изучено</Button>
-                <Button style={translateButtStyle} name="button_back" type="button" variant="primary" onClick={() => setFlip(!flip)}>Назад</Button>
+                <Button
+                  style={translateButtStyle}
+                  name="button_delete"
+                  type="button"
+                  variant="primary"
+                  onClick={() =>
+                    deleteHandler({ cardId: oneCard.id, cardThemeId: oneCard.theme_id })
+                  }
+                >
+                  Изучено
+                </Button>
+                <Button
+                  style={translateButtStyle}
+                  name="button_back"
+                  type="button"
+                  variant="primary"
+                  onClick={() => setFlip(!flip)}
+                >
+                  Назад
+                </Button>
               </div>
             </Card.Body>
           </Card>
         </div>
-
       </ReactCardFlip>
-
     </div>
   );
 }

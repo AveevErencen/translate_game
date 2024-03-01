@@ -32,22 +32,3 @@ export default function SigninPage() {
     </div>
   );
 }
-
-{ /* <Form onSubmit={handleSubmit}>
-      <Form.Label htmlFor="inputPassword5">Email</Form.Label>
-      <Form.Control
-        name="email"
-        type="email"
-        id="inputEmail"
-        aria-describedby="passwordHelpBlock"
-      />
-      <Form.Label htmlFor="inputPassword5">Пароль</Form.Label>
-      <Form.Control
-        name="password"
-        type="password"
-        id="inputPassword"
-        aria-describedby="passwordHelpBlock"
-      />
-      <Button type="submit" variant="secondary">Отправить</Button>
-      {' '}
-    </Form> */ }

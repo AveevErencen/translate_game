@@ -1,214 +1,214 @@
 * {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
+    sans-serif;
 }
 
-body{
-    background-image: url('./image/5026563.jpg');
-    background-size: cover;
+body {
+  background-image: url('./image/5026563.jpg');
+  background-size: cover;
 }
 
 .navbar {
-    background: #7fb6ce;
-    padding: 10px 20px;
-    margin: 25px 20px 0 20px;
-    border-radius: 15px;
+  background: #7fb6ce;
+  padding: 10px 20px;
+  margin: 25px 20px 0 20px;
+  border-radius: 15px;
 }
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-links {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .navbar-brand {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
-    font-size: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+  text-decoration: none;
+  color: inherit;
+  font-size: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding-left: 20px; /* Отступ слева */
-  }
-  
-  form {
-    width: 300px;
-  }
-  
-  label {
-    margin-bottom: 5px;
-  }
-  
-  input {
-    width: 100%;
-    padding: 5px;
-    margin-bottom: 10px;
-  }
-  
-  button {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #7fb6ce;
-    color: black;
-    cursor: pointer;
-    box-shadow: none;
-  }
-  
-  button:hover {
-    background-color: #7fb6ce;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding-left: 20px; /* Отступ слева */
+}
 
-  .modal {
-    height: 100vh;
-    width: 100vh;
-    background-color: rgba(0, 0, 0, 0.4);
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.5;
-  }
+form {
+  width: 300px;
+}
 
-  .modal.active{
-    opacity: 1;
-    pointer-events: all;
-  }
+label {
+  margin-bottom: 5px;
+}
 
-  .modal_content {
-    padding: 20px;
-    border-radius: 12px;
-    background-color: white;
-    width: 100vw;
-    transform: scale(0.5);
-    transition: 0.4s all;
-  }
+input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
 
-  .modal_content.active {
-    transform: scale(1);
-  }
-  .container {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .inputGroup {
-    width: 400px;
-    margin-bottom: 20px;
-  }
-  
-  .inputGroupText {
-    text-align: center;
-    font-size: 30px;
-    color: #000;
-    margin-top: 40px;
-    margin-bottom: 20px;
-  }
-  
-  .formControl {
-    border: 1px solid #7fb6ce;
-    border-radius: 5px 5px 5px 5px;
-  }
+button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #7fb6ce;
+  color: black;
+  cursor: pointer;
+  box-shadow: none;
+}
 
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .card {
-    background-color: rgb(246, 232, 215);
-    width: 400px;
-    height: 265px;
-    margin: 10px;
-    text-align: center;
-    display: flex;
-  }
-  
-  .cardBody {
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: normal;
-  }
-  
-  .wordBox {
-    padding: 70px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-  }
+button:hover {
+  background-color: #7fb6ce;
+}
 
-  .indexDiv{
-    background-image: url('./image/englishbooknotebookhighangle.jpg');
-    background-size: cover;
-    width: 1500px;
-    height: 700px;
-    margin: 0 auto;
-    text-align: center;
-    opacity: 0.9;
-    border-radius: 10px;
-    
-  }
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5;
+}
 
-  .mailH1{
-    font-size: 80px;
-    margin-top: 100px;
-    padding-top: 100px;
-    text-shadow: 2px 2px 4px #f8f6f6;
-  }
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
 
-  .mainCardTheme {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .oneCarsStyle {
-    width: 250px;
-    margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .carsStyle {
-    padding: 10px;
-  }
-  
-  .wordBoxStyle {
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .card-title {
-    margin-top: 60px;
-    margin-bottom: 60px;
-    font-size: 25px;
-    font-weight: bold;
-  }
-  
-  .button_translate {
-    margin-top: 10px;
-  }
+.modal_content {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: white;
+  width: 40vw;
+  transform: scale(0.5);
+  transition: 0.4s all;
+}
+
+.modal_content.active {
+  transform: scale(1);
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.inputGroup {
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+.inputGroupText {
+  text-align: center;
+  font-size: 30px;
+  color: #000;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.formControl {
+  border: 1px solid #7fb6ce;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background-color: rgb(246, 232, 215);
+  width: 400px;
+  height: 265px;
+  margin: 10px;
+  text-align: center;
+  display: flex;
+}
+
+.cardBody {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: normal;
+}
+
+.wordBox {
+  padding: 70px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.indexDiv {
+  background-image: url('./image/englishbooknotebookhighangle.jpg');
+  background-size: cover;
+  width: 1500px;
+  height: 700px;
+  margin: 0 auto;
+  text-align: center;
+  opacity: 0.9;
+  border-radius: 10px;
+}
+
+.mailH1 {
+  font-size: 80px;
+  margin-top: 100px;
+  padding-top: 100px;
+  text-shadow: 2px 2px 4px #f8f6f6;
+}
+
+.mainCardTheme {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.oneCarsStyle {
+  width: 250px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.carsStyle {
+  padding: 10px;
+}
+
+.wordBoxStyle {
+  padding: 10px;
+  text-align: center;
+}
+
+.card-title {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.button_translate {
+  margin-top: 10px;
+}
