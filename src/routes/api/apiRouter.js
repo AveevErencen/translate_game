@@ -27,8 +27,7 @@ router.get('/search', async (req, res) => {
 
 router.post('/new', async (req, res) => {
   const { word_eng, word_rus, theme_name } = req.body;
-  if (!word_eng || !word_rus || !theme_name)
-    return res.status(400).json({ message: 'Пожалуйста, заполните все поля' });
+  if (!word_eng || !word_rus || !theme_name) return res.status(400).json({ message: 'Пожалуйста, заполните все поля' });
 
   const [newTheme, created] = await Theme.findOrCreate({
     where: { theme_name },
@@ -46,6 +45,7 @@ router.post('/new', async (req, res) => {
 
 router.post('/card', async (req, res) => {
   const { cardId, cardThemeId } = req.body;
+  // console.log('dfds', cardId, cardThemeId);
   await Progress.create({ user_id: res.locals.user.id, card_id: cardId, theme_id: cardThemeId });
   res.sendStatus(200);
 });

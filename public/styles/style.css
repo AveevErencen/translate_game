@@ -102,3 +102,56 @@ a:hover {
   .modal_content.active {
     transform: scale(1);
   }
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .inputGroup {
+    width: 400px;
+    margin-bottom: 20px;
+  }
+  
+  .inputGroupText {
+    text-align: center;
+    font-size: 30px;
+    color: #000;
+    
+    
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  
+  .formControl {
+    border: 1px solid #47a8d1;
+    border-radius: 5px 5px 5px 5px;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .card {
+    background-color: rgb(246, 232, 215);
+    width: 400px;
+    height: 265px;
+    margin: 10px;
+    text-align: center;
+    display: flex;
+  }
+  
+  .cardBody {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: normal;
+  }
+  
+  .wordBox {
+    padding: 70px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+

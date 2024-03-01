@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
 
 router.get('/themes', async (req, res) => {
   const themes = await Theme.findAll();
+  console.log(themes);
   res.render('ChoosePage', { themes });
 });
 
