@@ -5,7 +5,7 @@ export default function NavBar({ user }) {
     <div className="navbar">
       <div className="container">
         <div className="brand-name">
-          <a className="navbar-brand">English - Easy</a>
+          <a className="navbar-brand" href="/">English - Easy</a>
         </div>
         <div className="navbar-links">
           {user ? <a href="/account">{user.name}</a> : <a href="/auth/signin">Войти</a>}

@@ -8,54 +8,13 @@ export default function OneCard({ el, deleteHandler }) {
   const [oneCard, setOneCard] = useState(el);
   const [flip, setFlip] = useState(false);
 
-  const wordBoxStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-    width: '240px',
-    // border: '1px solid red',
-  };
-
-  const frontCardStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    width: '18rem',
-
-    // border: '1px solid green',
-  };
-
-  const bottomCardStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    width: '18rem',
-    backgroundColor: 'lightGray',
-    // border: '1px solid blue',
-  };
-
-  const innerCardStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    width: '18rem',
-    // border: '1px solid green',
-  };
-
-  const translateButtStyle = {
-    margin: '20px',
-  };
-
   return (
     <div>
       <ReactCardFlip
         isFlipped={flip}
         flipDirection="vertical"
       >
-        <div>
+        <div style={genBackground}>
           <Card style={frontCardStyle} key={oneCard.id}>
             <Card.Body style={innerCardStyle}>
               <div style={wordBoxStyle}>
@@ -66,7 +25,7 @@ export default function OneCard({ el, deleteHandler }) {
           </Card>
         </div>
 
-        <div>
+        <div style={genBackground}>
           <Card style={bottomCardStyle} key={oneCard.id}>
             <Card.Body style={innerCardStyle}>
               <div style={wordBoxStyle}>
@@ -85,3 +44,48 @@ export default function OneCard({ el, deleteHandler }) {
     </div>
   );
 }
+
+const frontCardStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexDirection: 'column',
+  width: '18rem',
+  // border: '5px solid red',
+};
+
+const wordBoxStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  flexWrap: 'wrap',
+  width: '240px',
+  // border: '1px solid red',
+};
+
+const bottomCardStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexDirection: 'column',
+  width: '18rem',
+  backgroundColor: 'lightGray',
+  // border: '1px solid blue',
+};
+
+const innerCardStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexDirection: 'column',
+  width: '18rem',
+  // border: '1px solid green',
+};
+
+const translateButtStyle = {
+  margin: '20px',
+};
+
+const genBackground = {
+  display: 'flex',
+  justifyContent: 'center',
+};

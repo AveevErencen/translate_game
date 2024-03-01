@@ -37,4 +37,8 @@ router.get('/account', async (req, res) => {
   const initState = [allCards, themes, answers];
   res.render('UserPage', { initState });
 });
+
+router.get('*', (req, res) => {
+  res.render('PageNotFound');
+});
 export default router;
