@@ -18,7 +18,8 @@ apiAuthRouter.post('/signin', async (req, res) => {
 
   const { accessToken, refreshToken } = generateTokens({ user });
 
-  res.cookie('accessToken', accessToken, cookiesConfig.access)
+  res
+    .cookie('accessToken', accessToken, cookiesConfig.access)
     .cookie('refreshToken', refreshToken, cookiesConfig.refresh)
     .sendStatus(200);
 });
@@ -26,7 +27,8 @@ apiAuthRouter.post('/signin', async (req, res) => {
 apiAuthRouter.post('/signup', async (req, res) => {
   const { email, name, password } = req.body;
   console.log(email, name, password);
-  if (!email || !name || !password) return res.status(400).json({ message: 'Пожалуйста заполните все поля!' });
+  if (!email || !name || !password)
+    return res.status(400).json({ message: 'Пожалуйста заполните все поля!' });
 
   const [newUser, created] = await User.findOrCreate({
     where: { email },
@@ -40,12 +42,21 @@ apiAuthRouter.post('/signup', async (req, res) => {
 
   const { accessToken, refreshToken } = generateTokens({ user });
 
-  res.cookie('accessToken', accessToken, cookiesConfig.access)
+  res
+    .cookie('accessToken', accessToken, cookiesConfig.access)
     .cookie('refreshToken', refreshToken, cookiesConfig.refresh)
     .sendStatus(200);
 });
 
+apiAuthRouter.put('/edit/:id', async (req, res) => {
+  const { id } = req.params;
+  const { name, password } = req.body;
+  console.log(id, name, password);
+  if (!name || !password)
+    return res.status(400).json({ message: 'Пожалуйста заполните все поля!' });
+  await User.update({ name, hashpass: await bcrypt.hash(password, 12) }, { where: { id } });
+
+  res.sendStatus(200);
+});
+
 export default apiAuthRouter;
-
-
-
