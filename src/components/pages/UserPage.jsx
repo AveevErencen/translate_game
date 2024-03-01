@@ -26,7 +26,7 @@ export default function UserPage({ user, initState }) {
     marginBottom: '25px',
   };
 
-  const handleSubmit = async (e, input, setInput) => {
+  const handleSubmit = async (e, input) => {
     e.preventDefault();
     try {
       const response = await axios.post('/api/new', input);
@@ -46,8 +46,23 @@ export default function UserPage({ user, initState }) {
     }));
   };
 
-  const editHandler = async (e, editInput) => {
+  const editHandler = async (e) => {
     e.preventDefault();
+    try {
+      const { id } = user;
+      const updateData = Object.fromEntries(new FormData(e.target));
+      const response = await fetch(`/api/auth/edit/${id}`, {
+        headers: { 'Content-Type': 'application/json' },
+        method: 'PUT',
+        body: JSON.stringify(updateData),
+      });
+      if (response.status === 200) {
+        window.location = '/account';
+      }
+    } catch (error) {
+      console.log(error);
+      alert(error.response.data.message);
+    }
   };
 
   return (
@@ -89,23 +104,23 @@ export default function UserPage({ user, initState }) {
           <Form onSubmit={editHandler}>
             <Form.Floating className="mb-3">
               <Form.Control
-                name="word_eng"
+                name="name"
                 value={editInput.name}
                 onChange={handleChange}
                 id="floatingNameCustom"
                 type="text"
-                placeholder="Math"
+                placeholder="Имя"
               />
               <label htmlFor="floatingNameCustom">Введите имя</label>
             </Form.Floating>
             <Form.Floating>
               <Form.Control
-                name="word_rus"
+                name="password"
                 value={editInput.password}
                 onChange={handleChange}
                 id="floatingPasswordCustom"
-                type="text"
-                placeholder="Математика"
+                type="password"
+                placeholder="Пароль"
               />
               <label htmlFor="floatingPasswordCustom">Введите пароль</label>
             </Form.Floating>

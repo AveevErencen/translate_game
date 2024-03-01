@@ -159,3 +159,56 @@ a:hover {
     border-radius: 10px;
     margin-bottom: 30px;
   }
+
+  .indexDiv{
+    background-image: url('./image/englishbooknotebookhighangle.jpg');
+    background-size: cover;
+    width: 1500px;
+    height: 700px;
+    margin: 0 auto;
+    text-align: center;
+    opacity: 0.9;
+    border-radius: 10px;
+    
+  }
+
+  .mailH1{
+    font-size: 80px;
+    margin-top: 100px;
+    padding-top: 100px;
+    text-shadow: 2px 2px 4px #f8f6f6;
+  }
+
+  .mainCardTheme {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .oneCarsStyle {
+    width: 250px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .carsStyle {
+    padding: 10px;
+  }
+  
+  .wordBoxStyle {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .card-title {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .button_translate {
+    margin-top: 10px;
+  }
