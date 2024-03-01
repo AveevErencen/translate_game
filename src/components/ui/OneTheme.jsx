@@ -7,7 +7,6 @@ export default function OneTheme({ themes }) {
     display: 'flex',
     justifyContent: 'center',
     margin: '50px',
-    border: '1px solid black',
   };
 
   const oneCardStyle = {
@@ -44,7 +43,8 @@ export default function OneTheme({ themes }) {
   );
 }
 
-{ /* <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+{
+  /* <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
       {themes?.map((theme) => (
         <Card key={theme.id} style={oneCardStyle}>
           <Card.Body style={oneCardStyle}>
@@ -55,4 +55,5 @@ export default function OneTheme({ themes }) {
           </Card.Body>
         </Card>
       ))}
-    </div> */ }
+    </div> */
+}
